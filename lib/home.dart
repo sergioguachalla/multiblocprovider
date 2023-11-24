@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multibloc/bloc/bloc1/bloc_a_bloc.dart';
+import 'package:multibloc/bloc/pages/page_two.dart';
 
 import 'bloc/enums/acts.dart';
 import 'bloc/pages/page_one.dart';
@@ -20,7 +21,7 @@ class Home extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.add),
                 onPressed: () {
-                  BlocProvider.of<ABloc>(context).add(OpenWindow(act: Acts.open, height: 200, width: 200));
+                  BlocProvider.of<ABloc>(context).add(OpenWindow(act: Acts.open, height: 300, width: 300));
 
                 },
               ),
@@ -29,13 +30,21 @@ class Home extends StatelessWidget {
                 onPressed: () {
                   BlocProvider.of<ABloc>(context).add(CloseWindow(act: Acts.close, height: 0, width: 0));
                 },
-              )
+              ),
+              IconButton(
+                icon: Icon(Icons.add_circle),
+                onPressed: () {
+                  BlocProvider.of<ABloc>(context).add(OpenSecondWindow(act: Acts.open, height: 300, width: 300));
+                  print(state);
+                },
+              ),
             ],
 
           ),
           body: Stack(
             children: [
               PageOne(),
+              PageTwo(),
             ],
           )
         )

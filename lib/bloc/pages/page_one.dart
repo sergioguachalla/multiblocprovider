@@ -25,11 +25,18 @@ class PageOne extends StatelessWidget {
                     onPressed: () {
                     context.read<ABloc>().add(CloseWindow(act: state.act, height: 0, width: 0));
                     },
-                    child: const Text('Close Window'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.indigoAccent,
                     ),
+                    child: const Text('Close Window'),
                 ),
+                Text(
+                  '${state}',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
 
               ],
             ),
